@@ -1,0 +1,37 @@
+hash: cc3b0e079b76e46cafd5bfdefc1a0c769c1ba9b8b51dd684a300aa2252361761
+updated: 2017-01-31T14:37:06.954925749+05:30
+imports:
+- name: github.com/golang/protobuf
+  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
+  subpackages:
+  - proto
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: 392c28fe23e1c45ddba891b0320b3b5df220beea
+- name: github.com/RetailMarket/priceManagerClient
+  version: f2f0e59988dbcf4d00ca127c8a39301f3ca32695
+- name: golang.org/x/net
+  version: f2499483f923065a842d38eb4c7f1927e6fc6e6d
+  subpackages:
+  - context
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - lex/httplex
+  - trace
+- name: google.golang.org/grpc
+  version: 21f8ed309495401e6fd79b3a9fd549582aed1b4c
+  subpackages:
+  - codes
+  - credentials
+  - grpclog
+  - internal
+  - metadata
+  - naming
+  - peer
+  - stats
+  - tap
+  - transport
+testImports: []
