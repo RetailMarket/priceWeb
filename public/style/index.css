@@ -1,0 +1,29 @@
+table, td, th {
+    border: 2px groove grey;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+
+td {
+    text-align: center;
+}
+
+.ui-header-cell {
+    font-weight: 900;
+}
+
+#input-price-error {
+    background-color: indianred;
+    font-weight: 900;
+}
+
+.table-header-row {
+    background-color: lightgray;
+}
