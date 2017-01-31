@@ -2,13 +2,10 @@ var ajaxCalls = {
   getRecords(table) {
     $.get('/records', function (data) {
       var records = JSON.parse(data);
-      console.log(records[0]);
-      if (data[0] != undefined) {
-        table.createHeader(Object.keys(records[0]));
-        records.forEach(function (value) {
-          table.appendRow(value, table);
-        });
-      }
+      table.createHeader();
+      records.forEach(function (value) {
+        table.appendRow(value, table);
+      });
     });
   },
   updatePrice(id, price){
@@ -20,15 +17,15 @@ var ajaxCalls = {
 
 $(document).on("click", ".ui-update-button", function (dom) {
   var id = dom.toElement.id;
-  var val = $('input#' + id).val();
+  var inputTag = $('input#' + id);
+  var val = inputTag.val();
+  debugger;
+  inputTag[0].value = "";
   var price = Number(val);
   if (!price) {
-    var errorBox = document.createElement("div");
-    errorBox.id = "input-price-error";
     var errorMessage = document.createElement("p");
     errorMessage.innerText = "Invalid val : " + val;
-    errorBox.appendChild(errorMessage);
-    document.body.prepend(errorBox);
+    $('#input-price-error').html(errorMessage)
   }
   else {
     ajaxCalls.updatePrice(id, price);

@@ -6,16 +6,15 @@ import (
 	"context"
 	priceManager "github.com/RetailMarket/priceManagerClient"
 	"encoding/json"
-	"fmt"
 	_"io/ioutil"
 	"log"
 	"strconv"
 )
 
-func AllRecords(res http.ResponseWriter, req *http.Request) {
-	response, err := client.PriceManagerClient.AllRecords(context.Background(), &priceManager.FetchRecordsRequest{});
+func AllLatestRecords(res http.ResponseWriter, req *http.Request) {
+	response, err := client.PriceManagerClient.AllLatestRecords(context.Background(), &priceManager.FetchRecordsRequest{});
 	if (err != nil) {
-		log.Println("Unable to get records from price manager service")
+		log.Println("Unable to get latest records from price manager service")
 		return;
 	}
 
@@ -26,16 +25,13 @@ func AllRecords(res http.ResponseWriter, req *http.Request) {
 		data := map[string]interface{}{
 			"id": entry.ProductId,
 			"name": entry.ProductName,
-			"version" : entry.Version,
-			"status": entry.Status,
-			"is_latest": entry.IsLatest,
 			"cost": entry.Cost}
 		entries = append(entries, &data)
 	}
 
 	records, err := json.Marshal(entries)
 	if (err != nil) {
-		fmt.Println("Unable to json marshal the fetched entries")
+		log.Println("Unable to json marshal the fetched entries")
 	}
 	res.Write(records)
 }
@@ -52,7 +48,7 @@ func SaveUpdateRequest(res http.ResponseWriter, req *http.Request) {
 	}
 	request := &priceManager.UpdateEntryRequest{ProductId:int32(id), Cost:int32(cost)}
 
-	response, err := client.PriceManagerClient.InsertNewUpdateRequest(context.Background(), request);
+	response, err := client.PriceManagerClient.InsertPriceUpdateRequest(context.Background(), request);
 
 	if (err != nil) {
 		log.Println("Unable to save in update request")

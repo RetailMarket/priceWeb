@@ -22,7 +22,7 @@ function updateLinkCell(id) {
   return cell;
 }
 
-const DISPLAY_FORMAT = ['id', 'is_latest', 'name', 'status', 'version', 'cost','update link'];
+const DISPLAY_FORMAT = ['name', 'cost', 'update link'];
 
 class Table {
   constructor() {
@@ -32,7 +32,7 @@ class Table {
   createHeader() {
     var row = document.createElement('tr');
 
-    DISPLAY_FORMAT.map(function (val, i) {
+    DISPLAY_FORMAT.forEach(function (val, i) {
       $(row).addClass('table-header-row');
       var cell = document.createElement('td');
       $(cell).addClass('ui-header-cell');
