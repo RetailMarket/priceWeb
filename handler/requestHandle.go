@@ -12,7 +12,7 @@ import (
 )
 
 func AllLatestRecords(res http.ResponseWriter, req *http.Request) {
-	response, err := client.PriceManagerClient.AllLatestRecords(context.Background(), &priceManager.FetchRecordsRequest{});
+	response, err := client.PriceManagerClient.LatestRecords(context.Background(), &priceManager.Request{});
 	if (err != nil) {
 		log.Println("Unable to get latest records from price manager service")
 		return;
@@ -46,9 +46,10 @@ func SaveUpdateRequest(res http.ResponseWriter, req *http.Request) {
 	if (err != nil) {
 		log.Println("Unable to parse given price")
 	}
-	request := &priceManager.UpdateEntryRequest{ProductId:int32(id), Cost:int32(cost)}
 
-	response, err := client.PriceManagerClient.InsertPriceUpdateRequest(context.Background(), request);
+	request := &priceManager.Record{ProductId:int32(id), Cost:int32(cost)}
+
+	response, err := client.PriceManagerClient.InsertRecord(context.Background(), request);
 
 	if (err != nil) {
 		log.Println("Unable to save in update request")

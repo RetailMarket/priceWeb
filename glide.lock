@@ -1,5 +1,5 @@
 hash: d1bef87ee2380113d4ea21aa09b49922b8f04dd259487c74b8832de0f33ed997
-updated: 2017-01-31T17:52:27.1714596+05:30
+updated: 2017-02-01T15:17:10.888287061+05:30
 imports:
 - name: github.com/golang/protobuf
   version: 8ee79997227bf9b34611aee7946ae64735e6fd93
@@ -10,7 +10,7 @@ imports:
 - name: github.com/gorilla/mux
   version: 392c28fe23e1c45ddba891b0320b3b5df220beea
 - name: github.com/RetailMarket/priceManagerClient
-  version: 948053baf33840e614a7456ab74b864f895e5b61
+  version: 91b04fbb7776c5c14482c315538afe910d726608
 - name: golang.org/x/net
   version: f2499483f923065a842d38eb4c7f1927e6fc6e6d
   subpackages:

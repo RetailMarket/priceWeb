@@ -19,7 +19,6 @@ $(document).on("click", ".ui-update-button", function (dom) {
   var id = dom.toElement.id;
   var inputTag = $('input#' + id);
   var val = inputTag.val();
-  debugger;
   inputTag[0].value = "";
   var price = Number(val);
   if (!price) {
